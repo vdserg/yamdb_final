@@ -1,4 +1,4 @@
-[![Yamb Workflow Actions Status](https://github.com/vdserg/yamdb_final/workflows/Yamdb%20workflow/badge.svg)](https://github.com/vdserg/yamdb_final/actions)
+[![Yamdb Actions Status](https://github.com/vdserg/yamdb_final/workflows/yamdb/badge.svg)](https://github.com/vdserg/yamdb_final/actions)
 # API для сервиса YAMDB
 #### Проект выполнялся в рамках учебного курса [Яндекс.Практикум](https://praktikum.yandex.ru/backend-developer/)
 ## Установка
