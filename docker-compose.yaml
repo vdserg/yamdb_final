@@ -13,10 +13,11 @@ services:
     env_file:
       - ./.env
   web:
-#    image:
-#      vdoserg/yamdb:latest
-    build: .
+    image:
+      vdoserg/yamdb:latest
     restart: always
+    command:
+      sh -c "python manage.py migrate --noinput && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - static_volume:/code/static
     expose:
