@@ -23,6 +23,8 @@ jobs:
           run: flake8 . --exclude *migrations*,tests,api_yamdb
         
         - name: Test with pytest
+          env:
+            DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }}
           run: pytest
 
   build_and_push_to_docker_hub:
