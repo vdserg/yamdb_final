@@ -82,10 +82,10 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
-          env:
+          envs:
             POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD,DJANGO_SECRET_KEY,DB_HOST,DB_PORT,NGINX_PORT,NGINX_SERVER_NAME
           script: |
-            cd /code
+            cd ~/code
             sudo docker-compose down
             sudo docker-compose up --build
 
