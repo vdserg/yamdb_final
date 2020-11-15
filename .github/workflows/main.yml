@@ -85,8 +85,8 @@ jobs:
           env:
             POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD,DJANGO_SECRET_KEY,DB_HOST,DB_PORT,NGINX_PORT,NGINX_SERVER_NAME
           script: |
-            sudo docker stop $(sudo docker ps -a -q)
             cd /code
+            sudo docker-compose down
             sudo docker-compose up --build
 
   send_message:
