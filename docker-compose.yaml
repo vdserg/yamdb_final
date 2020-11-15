@@ -10,12 +10,24 @@ services:
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
 #    env_file:
 #      - ./.env
   web:
     image:
       vdoserg/yamdb:latest
     restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
     command:
       sh -c "python manage.py migrate --noinput && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000"
     volumes:
@@ -28,6 +40,9 @@ services:
 #      - ./.env
   nginx:
     image: nginx:1.19.4-alpine
+    environment:
+      NGINX_PORT: ${NGINX_PORT}
+      NGINX_SERVER_NAME: ${NGINX_SERVER_NAME}
     restart: always
     volumes:
       - static_volume:/code/static
