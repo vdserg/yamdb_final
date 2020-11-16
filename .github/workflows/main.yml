@@ -71,12 +71,12 @@ jobs:
         env:
           POSTGRES_DB: "yamdb"
           POSTGRES_USER: "yamdb_admin"
-#          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
-#          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
-#          DB_HOST: "db"
-#          DB_PORT: "5432"
-#          NGINX_PORT: "80"
-#          NGINX_SERVER_NAME: "yamdb"
+          DB_HOST: "db"
+          DB_PORT: "5432"
+          NGINX_PORT: "80"
+          NGINX_SERVER_NAME: "yamdb"
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
