@@ -5,7 +5,7 @@ from django.conf.global_settings import AUTHENTICATION_BACKENDS
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', default='sh*qt+pa2m2%eqf-70*4u%!15pg3hc+0-+yfnyo6=v24jp)y57')
 
 DEBUG = False
 
