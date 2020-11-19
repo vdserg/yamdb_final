@@ -20,11 +20,9 @@ services:
       sh -c "
       python manage.py migrate --noinput
       && python manage.py collectstatic --noinput
-      && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:80"
+      && gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - static_volume:/code/static
-    expose:
-      - "80"
     depends_on:
       - db
     env_file:
@@ -34,7 +32,12 @@ services:
     restart: always
     volumes:
       - static_volume:/code/static
-      - ./nginx/templates:/etc/nginx/templates
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/templates/default.conf.template
+#      - type: bind
+#        source: ./redoc/redoc.yaml
+#        target: /code/static/redoc.yaml
     ports:
       - "80:80"
     env_file:
