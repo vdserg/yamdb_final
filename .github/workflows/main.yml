@@ -73,9 +73,9 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           script: |
             cd ~/code
-            sudo docker-compose pull web
-            sudo docker-compose down
-            sudo docker-compose up --build -d
+            docker-compose pull web
+            docker-compose down
+            docker-compose up --build -d
 
   send_message:
     runs-on: ubuntu-latest

@@ -16,7 +16,8 @@ __pycache__/
 *.sublime-project
 *.sublime-workspace
 
-static/
+static/*
+!static/redoc.yaml
 posts/static/
 
 db.sqlite3
